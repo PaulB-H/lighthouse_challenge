@@ -18,9 +18,93 @@
         padding: 0;
         box-sizing: border-box;
       }
+      #content {
+        max-width: 600px;
+        margin: auto;
+      }
+      .hljs-ln-numbers {
+        vertical-align: top;
+      }
+      .hljs-ln-n {
+        margin-right: 10px;
+      }
+      pre {
+        white-space: break-spaces;
+      }
     </style>
   </head>
   <body>
+    <div id="content">
+      <header>
+        <h1>Lighthouse Labs 21 Day Data Challenge</h1>
+        <a href="https://data-challenge.lighthouselabs.ca/"
+          >Find the challenges here!</a
+        >
+      </header>
+      <div class="challenge-div">
+        <h1>Challenge 6</h1>
+        <pre><code># Dot needs you to look at the measurements and figure out the answers to the following questions:
+
+# Small hole (less than 20 mm) 	$1.30
+# Medium hole (above or equal to 20 mm AND less than 70mm) 	$1.60
+# Large hole (above or equal to 70 mm) 	$2.10
+
+# What is the average sized hole?
+# What is the average cost to fix a hole?
+# What is the total cost of fixing all of the holes?
+
+# Stretch Question:
+# What is the maximum sized hole?
+# What is the minimum sized hole?
+
+import random 
+import pandas as pd
+
+random.seed(34)
+
+hole_sizes = [random.randint(1, i) for i in range(1, 101)]
+random.shuffle(hole_sizes)
+
+# Turn hole_sizes into a 'series' Pandas can work with
+hole_series = pd.Series(hole_sizes)
+
+# What is the average sized hole?
+average_size_hole = hole_series.mean()
+print(f'Average sized hole is {average_size_hole}')
+
+# What is the average cost to fix a hole?
+cost_list = []
+
+for i in range(len(hole_sizes)):
+	if hole_sizes[i] < 20:
+		cost_list.append(1.30)
+	elif hole_sizes[i] < 70:
+		cost_list.append(1.60)
+	else:
+		cost_list.append(2.10)
+        
+# Turn cost_list into a 'series' Pandas can work with
+cost_series = pd.Series(cost_list)
+
+avg_cost_per_hole = round(cost_series.mean(), 3)
+print(f'Average cost to fix a hole is ${avg_cost_per_hole}')
+    
+# What is the total cost of fixing all of the holes?
+total_cost = round(sum(cost_list), 3)
+print(f'Average cost to fix a hole is ${total_cost}')
+
+# Stretch Questions:
+
+# What is the maximum sized hole?
+max_hole_size = hole_series.max()
+print(f'Max hole size is {max_hole_size}')
+
+# What is the minimum sized hole?
+min_hole_size = hole_series.min()
+print(f'Min hole size is {min_hole_size}')
+</code></pre>
+      </div>
+    </div>
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
     <!-- Highlight.js Line Numbers -->
