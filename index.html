@@ -32,6 +32,8 @@
         font-family: "EB Garamond", serif;
         margin: 5px 0;
       }
+      p,
+      a,
       .question-txt {
         font-family: "Nanum Gothic", sans-serif;
         font-size: 1.2em;
@@ -46,6 +48,14 @@
       }
       hr {
         margin: 10px 0;
+      }
+      #header-links {
+        display: flex;
+        flex-direction: column;
+      }
+      #header-links a {
+        max-width: max-content;
+        margin-bottom: 5px;
       }
       /* Highlight.js line number wrapper */
       .hljs-ln-numbers {
@@ -64,9 +74,16 @@
     <div id="content">
       <header>
         <h1>Lighthouse Labs 21 Day Data Challenge</h1>
-        <a href="https://data-challenge.lighthouselabs.ca/" target="_blank"
-          >Find the challenges here!</a
-        >
+        <h3>by Paul Bernard-Hall</h3>
+
+        <div id="header-links">
+          <a href="https://www.devbypaul.ca" target="_blank">
+            Visit my Portfolio
+          </a>
+          <a href="https://data-challenge.lighthouselabs.ca/" target="_blank">
+            Find the challenges here!
+          </a>
+        </div>
       </header>
 
       <hr />
