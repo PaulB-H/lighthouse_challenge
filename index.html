@@ -66,6 +66,9 @@
       .hljs-ln-n {
         margin-right: 10px;
       }
+      .hljs-ln-code {
+        word-break: break-word;
+      }
       pre {
         white-space: break-spaces;
       }
@@ -113,7 +116,7 @@ What is the total cost of fixing all of the holes?
 # What is the maximum sized hole?
 # What is the minimum sized hole?
         </pre>
-        <pre><code>import random 
+        <pre><code class="hljs python">import random 
 import pandas as pd
 
 random.seed(34)
@@ -179,7 +182,8 @@ Part of this challenge says:
 
 We know from our data that Dot moved from the city to the country. Therefore we know we need to now find the items that cost more at the country store compared to the city store.
         </pre>
-        <pre><code># Cleaning Supplies List (19 items)
+        <pre><code class="hljs python">
+# Cleaning Supplies List (19 items)
 cleaningsupplies_list = ['Broom', 'Mop', 'Dustpan', 'Garbage Bags', 'Glass Cleaner', 'Vinegar','Soap', 'Bleach', 'Duster', 'Floor Cleaner', 'Sponges', 'Dish Soap', 'Drain Cleaner', 'Paper Towels', 'Cleaning Rags', 'Toilet Cleaner', 'Rubber Gloves', 'Alcohol Wipes', 'Squeegee']
 
 # City Price
@@ -218,7 +222,7 @@ Plank of Oak Wood    / 600 / $ 7000 / $ 12.99
 1 Liter of White Paint / 15   / $ 1000 / $ 9.99
 1 Liter of Paint Finish / 165 / $ 800   / $ 3.99
         </pre>
-        <pre><code>item_list = ['Oak Wood', 'Blue Paint', 'White Paint', 'Paint Finish']
+        <pre><code class="hljs python">item_list = ['Oak Wood', 'Blue Paint', 'White Paint', 'Paint Finish']
 
 amount_list = [600,150,15,165]
 
