@@ -41,8 +41,10 @@
           >Find the challenges here!</a
         >
       </header>
+      <!--Challenge 6 -->
       <div class="challenge-div">
         <h1>Challenge 6</h1>
+
         <pre><code># Dot needs you to look at the measurements and figure out the answers to the following questions:
 
 # Small hole (less than 20 mm) 	$1.30
@@ -102,8 +104,48 @@ print(f'Max hole size is {max_hole_size}')
 # What is the minimum sized hole?
 min_hole_size = hole_series.min()
 print(f'Min hole size is {min_hole_size}')
-</code></pre>
+        </code></pre>
       </div>
+      <!-- END Challenge 6 -->
+
+      <!--Challenge 5 -->
+      <div class="challenge-div">
+        <h1>Challenge 5</h1>
+        <pre>
+The store in the nearby town does sell cleaning supplies, but their prices can sometimes be a lot higher than Dot's used to. They've already spent so much money on repairs - can you help them figure out which supplies to abstain from buying at the town's store?
+
+Dot's okay with paying a bit of a surplus for convenience, but they don't want to go broke buying dustpans and glass cleaner. Help them figure out which items cost over 10% more at the nearby store, so they can avoid buying these items.
+
+The wording for this question was a bit tricky. In the previous challenge we had to figure out which prices at the city store were a certain % greater than the country store price.
+
+Part of this challenge says:
+"...The store in the nearby town does sell cleaning supplies, but their prices can sometimes be a lot higher than Dot's used to...."
+
+We know from our data that Dot moved from the city to the country. Therefore we know we need to now find the items that cost more at the country store compared to the city store.
+        </pre>
+        <pre><code># Cleaning Supplies List (19 items)
+cleaningsupplies_list = ['Broom', 'Mop', 'Dustpan', 'Garbage Bags', 'Glass Cleaner', 'Vinegar','Soap', 'Bleach', 'Duster', 'Floor Cleaner', 'Sponges', 'Dish Soap', 'Drain Cleaner', 'Paper Towels', 'Cleaning Rags', 'Toilet Cleaner', 'Rubber Gloves', 'Alcohol Wipes', 'Squeegee']
+
+# City Price
+city_price = [6.49, 4.99, 3.39, 4.29, 3.99, 1.99, 1.50, 3.99, 4.99, 5.99, 2.99, 2.99, 5.99, 2.99, 3.49, 6.99, 2.99, 1.98, 11.99]
+
+# Country Price
+country_price = [5.49, 4.69, 4.42, 5.99, 5.99, 2.50, 1.25, 2.49, 4.50, 6.75, 2.49, 1.99, 6.25, 3.99, 3.59, 4.99, 1.69, 1.87, 10.99]
+
+too_expensive = []
+
+for i in range(len(cleaningsupplies_list)):
+    diff = (country_price[i] - city_price[i]) / city_price[i]
+    if diff > 0.1:
+          too_expensive.append(cleaningsupplies_list[i])
+
+print("The following items are over 10% more expensive at the country store, compared to the city store \n")
+
+print(too_expensive)
+# returns: ['Dustpan', 'Garbadge Bags', 'Glass Cleaner', 'Vinegar', 'Floor Cleaner', 'Paper Towels']
+        </code></pre>
+      </div>
+      <!-- END Challenge 5 -->
     </div>
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
