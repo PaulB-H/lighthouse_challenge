@@ -66,8 +66,13 @@
       .hljs-ln-n {
         margin-right: 10px;
       }
+      /* Highlight.js code wrapper */
       .hljs-ln-code {
         word-break: break-word;
+        vertical-align: top;
+      }
+      .hljs-ln-line:first-child {
+        vertical-align: top;
       }
       pre {
         white-space: break-spaces;
@@ -89,6 +94,54 @@
           </a>
         </div>
       </header>
+
+      <hr />
+
+      <!--Challenge 7 -->
+      <div class="challenge-div">
+        <h1>Challenge 7</h1>
+
+        <pre class="question-txt">
+Dot has a lot of different boxes laying around. They need a system for how to unpack them, or they'll just continue procrastinating. Help Dot sort the boxes by their weight.
+
+Box     | 	Weight (kg)
+----------------------------
+Box 1  |	4
+Box 2  | 	2
+Box 3  | 	18
+Box 4  | 	21
+Box 5  | 	14
+Box 6  | 	13
+
+We are given a dictionary (like a JS object) that has a weight_list, and box_name list. We need to know which boxes to take if we want them in order from lightest to heaviest.
+
+I started by copying the two unsorted lists out of the dictionary object, and then created another list by using sorted() on the unsorted weight_list.
+
+Then I iterated through the the sorted weights in "sorted_list", for each one I iterated through the unsorted "weight_list", and if there was a match, I appended the corresponding unsorted box_list item (The same index number) and push it to a new list, which becomes the order of the box names from lightest to heaviest.
+        </pre>
+        <pre><code class="python">user_boxes = {
+	'weight': [4,2,18,21,14,13], 
+	'box_name': ['box1','box2', 'box3', 'box4', 				 'box5', 'box6']
+}
+
+box_list = list(user_boxes["box_name"])
+weight_list = list(user_boxes["weight"])
+
+sorted_list = sorted(weight_list)
+
+order_to_pick = []
+
+for i in range(len(sorted_list)):
+    for x in range(len(weight_list)):
+      if sorted_list[i] == weight_list[x]:
+        order_to_pick.append(box_list[x])
+
+print(f'The order you should pick boxes is {order_to_pick}')
+
+# Returns: ['box2', 'box1', 'box6', 'box5', 'box3', 'box4']
+        </code></pre>
+      </div>
+      <!-- END Challenge 7 -->
 
       <hr />
 
@@ -116,7 +169,7 @@ What is the total cost of fixing all of the holes?
 # What is the maximum sized hole?
 # What is the minimum sized hole?
         </pre>
-        <pre><code class="hljs python">import random 
+        <pre><code class="python">import random 
 import pandas as pd
 
 random.seed(34)
@@ -182,8 +235,7 @@ Part of this challenge says:
 
 We know from our data that Dot moved from the city to the country. Therefore we know we need to now find the items that cost more at the country store compared to the city store.
         </pre>
-        <pre><code class="hljs python">
-# Cleaning Supplies List (19 items)
+        <pre><code class="python"># Cleaning Supplies List (19 items)
 cleaningsupplies_list = ['Broom', 'Mop', 'Dustpan', 'Garbage Bags', 'Glass Cleaner', 'Vinegar','Soap', 'Bleach', 'Duster', 'Floor Cleaner', 'Sponges', 'Dish Soap', 'Drain Cleaner', 'Paper Towels', 'Cleaning Rags', 'Toilet Cleaner', 'Rubber Gloves', 'Alcohol Wipes', 'Squeegee']
 
 # City Price
@@ -195,9 +247,9 @@ country_price = [5.49, 4.69, 4.42, 5.99, 5.99, 2.50, 1.25, 2.49, 4.50, 6.75, 2.4
 too_expensive = []
 
 for i in range(len(cleaningsupplies_list)):
-    diff = (country_price[i] - city_price[i]) / city_price[i]
+  diff = (country_price[i] - city_price[i]) / city_price[i]
     if diff > 0.1:
-          too_expensive.append(cleaningsupplies_list[i])
+      too_expensive.append(cleaningsupplies_list[i])
 
 print("The following items are over 10% more expensive at the country store, compared to the city store \n")
 
@@ -222,7 +274,7 @@ Plank of Oak Wood    / 600 / $ 7000 / $ 12.99
 1 Liter of White Paint / 15   / $ 1000 / $ 9.99
 1 Liter of Paint Finish / 165 / $ 800   / $ 3.99
         </pre>
-        <pre><code class="hljs python">item_list = ['Oak Wood', 'Blue Paint', 'White Paint', 'Paint Finish']
+        <pre><code class="python">item_list = ['Oak Wood', 'Blue Paint', 'White Paint', 'Paint Finish']
 
 amount_list = [600,150,15,165]
 
