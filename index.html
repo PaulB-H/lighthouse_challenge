@@ -97,6 +97,59 @@
 
       <hr />
 
+      <!--Challenge 8 -->
+      <div class="challenge-div">
+        <h1>Challenge 8</h1>
+
+        <pre class="question-txt">
+Dot knows that there's a big cow farm just down the road where you can rent out a spotted friend for a few months. The thing is, they're not sure if this is the best time to do that. Do cows produce more milk during certain months, and less during others? 
+
+We are given a .csv file, which we use Pandas to read and turn into a Pandas DataFrame.
+
+Questions:
+  At what year and month did company x produce the most milk?
+  At what year and month did company x produce the least milk?
+
+First 5 columns:
+
+     Month   |	Monthly milk production: pounds per cow
+--------------------------------------------------------------------------
+0   07-Feb   |  589
+1   07-Mar  |  561
+2   07-Apr   |  640
+3   07-May  |  656
+4   07-Jun   |  727
+...
+...
+
+We only need two DataFrame functions to solve this, DataFrame.idxmax() and DataFrame.iloc()
+
+We use DataFrame.idmax() and pass in the column "Monthly milk production: pounds per cow" to find the INDEX value of the row with the highest milk production, then pass that index value to dataFrame.iloc() to get the entire row details, from which we get the corresponding Year/Month (our answer).
+        </pre>
+        <pre><code class="python">import pandas as pd
+df = pd.read_csv('milk.csv')
+
+indexOfMax = (df['Monthly milk production: pounds per cow'].idxmax())
+    
+indexOfMin = (df['Monthly milk production: pounds per cow'].idxmin())
+
+print(df.iloc[indexOfMax])
+# Returns:
+# Month                                      19-Jun
+# Monthly milk production: pounds per cow    969
+# Name: 148(index), dtype: object
+
+print(df.iloc[indexOfMin])
+# Returns:
+# Month                                      07-Dec
+# Monthly milk production: pounds per cow    553
+# Name: 10(index), dtype: object
+        </code></pre>
+      </div>
+      <!-- END Challenge 8 -->
+
+      <hr />
+
       <!--Challenge 7 -->
       <div class="challenge-div">
         <h1>Challenge 7</h1>
